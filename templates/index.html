@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>图层合成工具</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- 批量合成进度弹窗 -->
+  <div id="batch-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <p>批量合成进度: <span id="batch-modal-text">0/0</span></p>
+      <progress id="batch-modal-progress" value="0" max="0"></progress>
+      <button id="batch-cancel">取消</button>
+    </div>
+  </div>
+
+  <div id="main-container">
+    <div id="sidebar-top">
+      <button id="btn-select-folder">添加图片</button>
+      <button id="btn-delete-preview" disabled>从预览中删除选中图片</button>
+      <div id="thumb-container" class="scroll-box"></div>
+      <button id="btn-add-image" disabled>添加到画布</button>
+    </div>
+
+    <div id="canvas-area">
+      <canvas id="main-canvas"></canvas>
+      <ul id="layer-list"></ul>
+    </div>
+
+    <div id="sidebar-bottom">
+      <button id="btn-new-folder">新建图层文件夹</button>
+      <ul id="folder-list"></ul>
+      <div id="folder-thumb-container" class="scroll-box"></div>
+      <button id="btn-add-to-folder">加入文件夹</button>
+    </div>
+  </div>
+
+  <div id="controls">
+    <button id="btn-delete-layer">删除图层</button>
+    <button id="btn-save-image">保存合成</button>
+    <button id="btn-save-coords">保存坐标</button>
+    <button id="btn-jump">跳转坐标</button>
+    <input id="input-coords" placeholder="x,y" />
+    <span id="current-coords">(-,-)</span>
+  </div>
+
+  <div id="folder-controls">
+    <button id="btn-delete-folder">删除当前文件夹</button>
+    <button id="btn-delete-folder-image">删除选中图片</button>
+    <button id="btn-system-add-to-folder">从系统添加图片到选中文件夹</button>
+    <button id="btn-batch-composite">批量合成</button>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

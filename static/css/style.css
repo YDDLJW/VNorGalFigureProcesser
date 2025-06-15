@@ -1,0 +1,170 @@
+/* static/css/style.css */
+:root {
+  --controls-height: 60px;
+  --thumb-size: 100px;
+  --sidebar-width: 240px;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 6px 12px;
+}
+
+#main-container {
+  display: flex;
+  height: calc(100vh - var(--controls-height));
+}
+
+#sidebar-top,
+#sidebar-bottom {
+  width: var(--sidebar-width);
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+#thumb-container,
+#folder-thumb-container {
+  flex: 1;
+  margin: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+#thumb-container img,
+#folder-thumb-container img {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  object-fit: contain;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+#thumb-container img.selected,
+#folder-thumb-container img.selected {
+  border-color: #28a745;
+}
+
+#canvas-area {
+  flex: 1;
+  position: relative;
+  margin: 5px;
+  border: 1px solid #000;
+}
+
+#main-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#layer-list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  overflow-y: auto;
+}
+
+#layer-list li {
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+#layer-list li.selected {
+  border-color: #28a745;
+}
+
+#folder-list {
+  max-height: 80px;
+  overflow-y: auto;
+  margin: 5px 0;
+}
+
+#folder-list li {
+  padding: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+#folder-list li.selected {
+  border-color: #28a745;
+  background: #e0e0e0;
+}
+
+#controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--controls-height);
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
+  background: #fff;
+}
+
+#folder-controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: var(--controls-height);
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
+  background: #fff;
+}
+
+.scroll-box {
+  -webkit-overflow-scrolling: touch;
+}
+
+button {
+  cursor: pointer;
+}
+
+#btn-delete-preview {
+  margin-bottom: 4px;
+}

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# IDE
+.idea/
+*.suo
+*.user
+*.pyproj
+
+# PyInstaller 生成
+build/
+dist/
+VNFigureProcesser.exe
+*.spec
